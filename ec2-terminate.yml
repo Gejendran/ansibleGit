@@ -1,9 +1,11 @@
 ---
-- hosts: ec2_instances
-  gather_facts: false
+- hosts: webserver
   tasks:
+  -name: gather_facts
+   action: ec2_facts
     - name: Terminate EC2 instance
-      ec2:
-         instance_ids: i-0cb2e8914bb3b26bd
-         region: ap-south-1a
-         state: absent
+      local_action:
+         module: ec2
+         instance_ids: [`i-0cb2e8914bb3b26bd`]
+         region: ap-south-1
+         state: stopped
