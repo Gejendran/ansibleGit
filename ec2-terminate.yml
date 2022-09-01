@@ -5,5 +5,5 @@
     - name: Terminate EC2 instance
       ec2:
          instance_ids: i-06a91d6215cfac72f
-         region: ap-south-1b
+         region: ap-south-1
          state: absent
